@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thirugnana Sivanandham — VPE Campaign</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0a0a0a;
+  --white:#fafaf8;
+  --cream:#f5f2ec;
+  --gold:#c9a84c;
+  --gold-light:#e8d5a3;
+  --text:#1a1a1a;
+  --muted:#6b6b6b;
+  --border:rgba(0,0,0,0.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;background:rgba(250,250,248,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--black)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--black)}
+.nav-vote{padding:8px 20px;background:var(--black);color:var(--white);font-size:13px;font-weight:500;border-radius:24px;text-decoration:none;transition:opacity 0.2s}
+.nav-vote:hover{opacity:0.8}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--black)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:20px 5%;z-index:99}
+.mobile-menu a{display:block;padding:12px 0;font-size:15px;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border)}
+section{min-height:100vh;padding:100px 5% 80px;display:flex;align-items:center;position:relative}
+section:nth-child(even){background:var(--cream)}
+
+/* HOME */
+#home{overflow:hidden;background:var(--black);color:var(--white)}
+.home-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,#1a1505 0%,#0a0a0a 70%);z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.15;animation:floatOrb 8s ease-in-out infinite}
+.orb1{width:400px;height:400px;background:var(--gold);top:-100px;right:-100px}
+.orb2{width:250px;height:250px;background:#c9a84c;bottom:50px;right:30%;animation-delay:3s}
+.orb3{width:180px;height:180px;background:#e8d5a3;top:40%;left:5%;animation-delay:5s}
+@keyframes floatOrb{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+.grid-lines{position:absolute;inset:0;z-index:0;opacity:0.04}
+.grid-lines svg{width:100%;height:100%}
+.particles{position:absolute;inset:0;z-index:0;overflow:hidden}
+.particle{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);opacity:0;animation:twinkle 4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:0.6;transform:scale(1)}}
+.home-content{position:relative;z-index:1;max-width:720px}
+.home-tag{display:inline-block;padding:6px 16px;border:1px solid rgba(201,168,76,0.5);border-radius:20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;animation:fadeUp 0.6s ease both}
+.home-content h1{font-family:'Playfair Display',serif;font-size:clamp(48px,8vw,88px);font-weight:900;line-height:1.0;letter-spacing:-2px;color:var(--white);animation:fadeUp 0.7s ease 0.1s both}
+.home-content h1 em{color:var(--gold);font-style:normal;position:relative}
+.home-content h1 em::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;animation:lineExpand 0.8s ease 0.9s forwards}
+@keyframes lineExpand{to{transform:scaleX(1)}}
+.home-desc{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.65);margin-top:24px;max-width:480px;animation:fadeUp 0.7s ease 0.2s both}
+.home-stats{display:flex;gap:40px;margin-top:44px;animation:fadeUp 0.7s ease 0.3s both}
+.stat-item .num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--gold)}
+.stat-item .label{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;letter-spacing:0.5px}
+.home-cta{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 0.7s ease 0.4s both}
+.btn-primary{padding:14px 32px;background:var(--gold);color:var(--black);font-size:14px;font-weight:500;border-radius:4px;text-decoration:none;transition:all 0.2s}
+.btn-primary:hover{opacity:0.85;transform:translateY(-2px)}
+.btn-outline{padding:14px 32px;border:1px solid rgba(255,255,255,0.3);color:var(--white);font-size:14px;border-radius:4px;text-decoration:none;transition:all 0.2s}
+.btn-outline:hover{border-color:rgba(255,255,255,0.7);transform:translateY(-2px)}
+.home-deco{position:absolute;right:8%;top:50%;transform:translateY(-50%);z-index:1;opacity:0.14;animation:fadeUp 1s ease 0.5s both}
+
+/* VISION */
+#vision .section-inner{max-width:920px;width:100%}
+.section-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);font-weight:700;line-height:1.1;letter-spacing:-1px;color:var(--black);margin-bottom:20px}
+.section-sub{font-size:16px;font-weight:300;color:var(--muted);line-height:1.7;max-width:520px;margin-bottom:52px}
+#vision::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(201,168,76,0.1);animation:spinSlow 20s linear infinite;pointer-events:none}
+#vision::after{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;border:1px solid rgba(201,168,76,0.07);animation:spinSlow 14s linear infinite reverse;pointer-events:none}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.vision-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.vision-card{padding:28px;background:var(--white);border:1px solid var(--border);border-radius:8px;position:relative;overflow:hidden;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s}
+.vision-card:hover{transform:translateY(-6px);border-color:var(--gold-light);box-shadow:0 12px 40px rgba(201,168,76,0.15)}
+.vision-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.vision-card:hover::before{transform:scaleX(1)}
+.vision-icon{width:48px;height:48px;margin-bottom:16px}
+.vision-card h3{font-size:16px;font-weight:500;color:var(--black);margin-bottom:10px}
+.vision-card p{font-size:14px;font-weight:300;color:var(--muted);line-height:1.65}
+
+/* PLAN */
+#plan .section-inner{max-width:900px;width:100%}
+.timeline-wrap{position:relative}
+.timeline-line{position:absolute;left:44px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gold-light),transparent);opacity:0.5}
+.plan-list{display:flex;flex-direction:column}
+.plan-item{display:grid;grid-template-columns:90px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border);align-items:start}
+.plan-item:first-child{border-top:1px solid var(--border)}
+.plan-month{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--text);letter-spacing:0.5px;padding-top:3px;transition:color 0.2s}
+.plan-item:hover .plan-month{color:var(--gold)}
+.plan-content h3{font-size:16px;font-weight:500;color:var(--black);margin-bottom:6px}
+.plan-content p{font-size:14px;font-weight:300;color:var(--muted);line-height:1.65}
+.plan-tag{display:inline-block;margin-top:10px;padding:4px 12px;background:#f0e8d4;color:#8a6a1f;font-size:11px;font-weight:500;border-radius:20px}
+
+/* WHY ME */
+#why .section-inner{max-width:900px;width:100%}
+.why-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.why-quote{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;line-height:1.5;color:var(--black);font-style:italic;border-left:3px solid var(--gold);padding-left:20px;margin:32px 0}
+.why-list{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:16px}
+.why-list li{display:flex;gap:14px;align-items:flex-start}
+.why-list li::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0}
+.why-list li span{font-size:15px;font-weight:300;color:var(--muted);line-height:1.6}
+.profile-card{background:var(--black);color:var(--white);border-radius:16px;padding:36px;position:relative;overflow:hidden}
+.profile-card-glow{position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(201,168,76,0.2),transparent 70%);pointer-events:none}
+.profile-initials{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#e8d5a3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--black);margin-bottom:20px;position:relative;z-index:1}
+.profile-card h3{font-size:20px;font-weight:500;color:var(--white);position:relative;z-index:1}
+.profile-card .role{font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;margin-bottom:28px;position:relative;z-index:1}
+.profile-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1}
+.pstat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px}
+.pstat .pval{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);line-height:1}
+.pstat .pkey{font-size:11px;color:rgba(255,255,255,0.4);margin-top:5px;letter-spacing:0.3px;text-transform:uppercase}
+.profile-badge{margin-top:16px;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:8px;position:relative;z-index:1;width:100%}
+.profile-badge span{font-size:13px;color:var(--gold)}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* ASK/VOTE */
+#ask{background:var(--black);color:var(--white);overflow:hidden}
+#ask .section-inner{max-width:700px;width:100%;text-align:center;position:relative;z-index:1}
+#ask .section-label{color:var(--gold)}
+#ask .section-title{color:var(--white)}
+.ask-rings{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,0.07);top:50%;left:50%;transform:translate(-50%,-50%)}
+.ring1{width:200px;height:200px;animation:ringPulse 4s ease-in-out infinite}
+.ring2{width:400px;height:400px;animation:ringPulse 4s ease-in-out 1s infinite}
+.ring3{width:650px;height:650px;animation:ringPulse 4s ease-in-out 2s infinite}
+@keyframes ringPulse{0%,100%{opacity:0.5}50%{opacity:0.1}}
+.ask-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:36px;margin-bottom:40px}
+.ask-box p{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:20px}
+.reco-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:20px}
+.reco-chip{padding:8px 18px;border:1px solid rgba(255,255,255,0.15);border-radius:20px;font-size:13px;color:rgba(255,255,255,0.7);cursor:pointer;transition:all 0.2s;background:transparent}
+.reco-chip:hover,.reco-chip.active{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.reco-answer{min-height:60px;padding:20px;background:rgba(255,255,255,0.03);border-radius:8px;font-size:14px;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.7;text-align:left;display:none}
+.reco-answer.show{display:block;animation:fadeUp 0.3s ease}
+.vote-section p{font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:24px;font-weight:300}
+.vote-btn{display:inline-block;padding:18px 52px;background:var(--gold);color:var(--black);font-size:16px;font-weight:500;border-radius:4px;text-decoration:none;transition:all 0.2s}
+.vote-btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(201,168,76,0.4)}
+
+footer{background:var(--black);padding:32px 5%;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.08)}
+.footer-left{font-family:'Playfair Display',serif;font-size:15px;color:rgba(255,255,255,0.5)}
+.footer-right{font-size:12px;color:rgba(255,255,255,0.25);letter-spacing:0.5px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+@media(max-width:768px){
+  .nav-links,.nav-vote{display:none}
+  .hamburger{display:flex}
+  section{padding:90px 5% 60px}
+  .home-stats{gap:24px}
+  .home-deco{display:none}
+  .why-layout{grid-template-columns:1fr}
+  .why-right{order:-1}
+  .plan-item{grid-template-columns:60px 1fr;gap:16px}
+  footer{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Thirugnana S.</div>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#plan">Plan</a></li>
+    <li><a href="#why">Why Me</a></li>
+    <li><a href="#ask">Vote</a></li>
+  </ul>
+  <a href="#ask" class="nav-vote">Vote for Dev</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#vision" onclick="closeMenu()">Vision</a>
+  <a href="#plan" onclick="closeMenu()">Plan</a>
+  <a href="#why" onclick="closeMenu()">Why Me</a>
+  <a href="#ask" onclick="closeMenu()">Vote</a>
+</div>
+
+<!-- PAGE 1: HOME -->
+<section id="home">
+  <div class="home-bg"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="particles" id="particles"></div>
+  <div class="grid-lines">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#c9a84c" stroke-width="0.5"/></pattern></defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+    </svg>
+  </div>
+  <div class="home-content">
+    <div class="home-tag">VPE Candidate · KIT Toastmasters 2025</div>
+    <h1>Thirugnana<br/><em>Sivanandham</em></h1>
+    <p class="home-desc">A communicator, a member, a leader. I've been in every meeting, played every role, and lived this club. Now I want to give back — as your Vice President of Education.</p>
+    <div class="home-stats">
+      <div class="stat-item"><div class="num">2nd</div><div class="label">Highest Club Role</div></div>
+      <div class="stat-item"><div class="num">100%</div><div class="label">Meeting Presence</div></div>
+      <div class="stat-item"><div class="num">KIT</div><div class="label">Toastmasters Club</div></div>
+    </div>
+    <div class="home-cta">
+      <a href="#vision" class="btn-primary">See My Vision</a>
+      <a href="#ask" class="btn-outline">Why Vote Dev?</a>
+    </div>
+  </div>
+  <!-- Animated mic -->
+  <div class="home-deco">
+    <svg width="240" height="380" viewBox="0 0 240 380" fill="none">
+      <rect x="85" y="20" width="70" height="130" rx="35" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="4 4">
+        <animate attributeName="stroke-dashoffset" values="0;-16" dur="2s" repeatCount="indefinite"/>
+      </rect>
+      <path d="M120 150 Q120 210 120 230" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+      <path d="M80 230 L160 230" stroke="#c9a84c" stroke-width="1.5"/>
+      <path d="M55 85 Q35 110 55 140" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.9;0" dur="2.5s" begin="0s" repeatCount="indefinite"/></path>
+      <path d="M35 75 Q5 110 35 150" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.5;0" dur="2.5s" begin="0.4s" repeatCount="indefinite"/></path>
+      <path d="M185 85 Q205 110 185 140" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.9;0" dur="2.5s" begin="0.2s" repeatCount="indefinite"/></path>
+      <path d="M205 75 Q235 110 205 150" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.5;0" dur="2.5s" begin="0.6s" repeatCount="indefinite"/></path>
+      <path d="M55 132 Q55 190 120 190 Q185 190 185 132" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+      <circle cx="45" cy="45" r="2" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="3s" begin="0s" repeatCount="indefinite"/><animate attributeName="cy" values="45;25;45" dur="3s" begin="0s" repeatCount="indefinite"/></circle>
+      <circle cx="200" cy="65" r="1.5" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="3s" begin="1s" repeatCount="indefinite"/><animate attributeName="cy" values="65;45;65" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
+      <circle cx="120" cy="8" r="2.5" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="3s" begin="1.5s" repeatCount="indefinite"/><animate attributeName="cy" values="8;-12;8" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
+    </svg>
+  </div>
+</section>
+
+<!-- PAGE 2: VISION -->
+<section id="vision">
+  <div class="section-inner reveal">
+    <div class="section-label">My Vision</div>
+    <h2 class="section-title">A club where every<br/>member truly grows.</h2>
+    <p class="section-sub">The VPE role is the engine of the club's education culture. Here's what I see for KIT Toastmasters.</p>
+    <div class="vision-grid">
+      <div class="vision-card reveal reveal-delay-1">
+        <svg class="vision-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="20" stroke="#e8d5a3" stroke-width="1"/>
+          <circle cx="24" cy="24" r="20" stroke="#c9a84c" stroke-width="2" stroke-dasharray="126" stroke-dashoffset="126"><animate attributeName="stroke-dashoffset" values="126;0" dur="2s" begin="0.5s" fill="freeze"/></circle>
+          <path d="M16 24 L22 30 L32 18" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24" stroke-dashoffset="24"><animate attributeName="stroke-dashoffset" values="24;0" dur="0.5s" begin="2.3s" fill="freeze"/></path>
+        </svg>
+        <h3>Pathway Completions</h3>
+        <p>Drive consistent progress across all members. Make milestones visible, celebrated, and motivating — so no one gets stuck.</p>
+      </div>
+      <div class="vision-card reveal reveal-delay-2">
+        <svg class="vision-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="18" cy="16" r="7" stroke="#c9a84c" stroke-width="1.5"><animate attributeName="r" values="7;8;7" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="34" cy="16" r="7" stroke="#c9a84c" stroke-width="1.5"><animate attributeName="r" values="7;8;7" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
+          <path d="M4 40 C4 32 10 26 18 26 C26 26 32 32 32 40" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M32 28 C36 28 44 31 44 40" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="20" stroke-dashoffset="20"><animate attributeName="stroke-dashoffset" values="20;0;20" dur="3s" repeatCount="indefinite"/></path>
+        </svg>
+        <h3>Full Engagement</h3>
+        <p>Every member gets a role, a goal, and a plan. No more passive attendance — active participation from day one.</p>
+      </div>
+      <div class="vision-card reveal reveal-delay-3">
+        <svg class="vision-icon" viewBox="0 0 48 48" fill="none">
+          <polyline points="6,38 18,24 28,30 42,10" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"><animate attributeName="stroke-dashoffset" values="60;0" dur="1.5s" repeatCount="indefinite"/></polyline>
+          <circle cx="42" cy="10" r="3" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/></circle>
+        </svg>
+        <h3>Club Growth</h3>
+        <p>Attract members from other clubs and spread KIT Toastmasters' name further. Bigger community, stronger energy.</p>
+      </div>
+      <div class="vision-card reveal reveal-delay-4">
+        <svg class="vision-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="14" cy="14" r="8" stroke="#c9a84c" stroke-width="1.5"/>
+          <circle cx="34" cy="34" r="8" stroke="#c9a84c" stroke-width="1.5"/>
+          <path d="M20 20 L28 28" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="12" stroke-dashoffset="12"><animate attributeName="stroke-dashoffset" values="12;0;12" dur="2s" repeatCount="indefinite"/></path>
+          <circle cx="14" cy="14" r="3" fill="#c9a84c"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="34" cy="34" r="3" fill="#c9a84c"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>
+        </svg>
+        <h3>Mentor Culture</h3>
+        <p>Bridge experienced and new members. Every newcomer has someone guiding them — so the learning never stops.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3: PLAN -->
+<section id="plan">
+  <div class="section-inner reveal">
+    <div class="section-label">My 90-Day Plan</div>
+    <h2 class="section-title">Not words.<br/>A real roadmap.</h2>
+    <p class="section-sub">Here's exactly what I'll do — concrete, measurable, no vague promises.</p>
+    <div class="timeline-wrap">
+      <div class="timeline-line"></div>
+      <div class="plan-list">
+        <div class="plan-item reveal"><div class="plan-month">Week 1–2</div><div class="plan-content"><h3>Member Education Audit</h3><p>Map every member's pathway level, identify who's inactive or stuck, and set personalised goals for each person.</p><span class="plan-tag">Foundation</span></div></div>
+        <div class="plan-item reveal"><div class="plan-month">Month 1</div><div class="plan-content"><h3>Revamp the Meeting Structure</h3><p>Introduce new themes, fresh role assignments, and specialty sessions that make every meeting feel intentional and exciting.</p><span class="plan-tag">Engagement</span></div></div>
+        <div class="plan-item reveal"><div class="plan-month">Month 2</div><div class="plan-content"><h3>Mentorship Pairs & Pathway Drives</h3><p>Pair experienced members with newer ones. Run a pathway completion sprint — track progress publicly and celebrate wins.</p><span class="plan-tag">Growth</span></div></div>
+        <div class="plan-item reveal"><div class="plan-month">Month 3</div><div class="plan-content"><h3>Outreach & Club Visibility</h3><p>Launch an outreach campaign to bring in members from other clubs. Represent KIT Toastmasters at a broader level.</p><span class="plan-tag">Expansion</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4: WHY ME -->
+<section id="why">
+  <div class="section-inner reveal">
+    <div class="section-label">Why Me</div>
+    <div class="why-layout">
+      <div class="why-left">
+        <h2 class="section-title">I didn't just join.<br/>I showed up.</h2>
+        <blockquote class="why-quote">"The best VPE isn't the one with the biggest plan — it's the one who already knows how the club breathes."</blockquote>
+        <ul class="why-list">
+          <li><span>Present at nearly every single meeting — offline and online — since I joined</span></li>
+          <li><span>Hosted as Toastmaster of the Evening multiple times — I know every role inside out</span></li>
+          <li><span>Currently AVP of Public Relations — I know how to represent and grow the club</span></li>
+          <li><span>Actively completing my own Pathways — I lead by example, not just by instruction</span></li>
+          <li><span>Strong communicator with proven ability to attract and engage people</span></li>
+        </ul>
+      </div>
+      <div class="why-right">
+        <div class="profile-card">
+          <div class="profile-card-glow"></div>
+          <div class="profile-initials">TS</div>
+          <h3>Thirugnana Sivanandham</h3>
+          <div class="role">VPE Candidate · KIT Toastmasters 2025</div>
+          <div class="profile-stats-grid">
+            <div class="pstat"><div class="pval">TME</div><div class="pkey">Multiple Times</div></div>
+            <div class="pstat"><div class="pval">AVP</div><div class="pkey">Public Relations</div></div>
+            <div class="pstat"><div class="pval">100%</div><div class="pkey">Meeting Presence</div></div>
+            <div class="pstat"><div class="pval">Active</div><div class="pkey">Pathways Journey</div></div>
+          </div>
+          <div class="profile-badge">
+            <div class="badge-dot"></div>
+            <span>Running for Vice President of Education</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5: VOTE -->
+<section id="ask">
+  <div class="ask-rings"><div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div></div>
+  <div class="section-inner reveal">
+    <div class="section-label">Make Your Decision</div>
+    <h2 class="section-title">Still have questions?<br/>I've got answers.</h2>
+    <p class="section-sub" style="margin:0 auto 40px;color:rgba(255,255,255,0.5)">Tap a question below — or just go ahead and vote.</p>
+    <div class="ask-box">
+      <p>What would you like to know?</p>
+      <div class="reco-chips">
+        <div class="reco-chip" onclick="showAnswer('a1',this)">Should I vote for Dev?</div>
+        <div class="reco-chip" onclick="showAnswer('a2',this)">What's the VPE role?</div>
+        <div class="reco-chip" onclick="showAnswer('a3',this)">How is Dev different?</div>
+        <div class="reco-chip" onclick="showAnswer('a4',this)">What happens after election?</div>
+      </div>
+      <div class="reco-answer" id="a1">If you want a VPE who has actually been there — every meeting, every role, every session — then yes. Dev isn't promising what he'll learn. He already knows this club. That's the difference.</div>
+      <div class="reco-answer" id="a2">The Vice President of Education is the second highest officer in a Toastmasters club. They run the education program — assigning roles, tracking Pathways progress, planning meeting agendas, and mentoring members toward their goals.</div>
+      <div class="reco-answer" id="a3">Most candidates talk about what they'll do. Dev has already been doing it — attending every meeting, hosting as TME, completing his own Pathways, and serving as AVP-PR. He brings lived experience, not just a plan on paper.</div>
+      <div class="reco-answer" id="a4">The moment the election is done, Dev gets to work — starting with a full member audit in Week 1. No waiting, no settling in period. The 90-day plan kicks in from Day 1.</div>
+    </div>
+    <div class="vote-section">
+      <p>Ready to make your choice?</p>
+      <a href="#home" class="vote-btn">Vote Thirugnana for VPE</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">Thirugnana Sivanandham · KIT Toastmasters</div>
+  <div class="footer-right">VPE CAMPAIGN 2025</div>
+</footer>
+
+<script>
+function toggleMenu(){var m=document.getElementById('mobileMenu');m.style.display=m.style.display==='block'?'none':'block'}
+function closeMenu(){document.getElementById('mobileMenu').style.display='none'}
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section').forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+function showAnswer(id,chip){
+  document.querySelectorAll('.reco-answer').forEach(a=>a.classList.remove('show'));
+  document.querySelectorAll('.reco-chip').forEach(c=>c.classList.remove('active'));
+  document.getElementById(id).classList.add('show');
+  chip.classList.add('active');
+}
+const pc=document.getElementById('particles');
+for(let i=0;i<30;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*6}s;animation-duration:${3+Math.random()*4}s`;
+  pc.appendChild(p);
+}
+</script>
+</body>
+</html>
